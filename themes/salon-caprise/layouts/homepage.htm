@@ -1,0 +1,278 @@
+description = "Home page"
+
+[formwidget]
+formType = "first"
+
+[formwidget formwidget2]
+formType = "third"
+
+[galleries]
+galleryName = 1
+galleryType = "slider"
+
+[services]
+serviceName = 1
+
+[advantage]
+advantageName = 1
+
+[feedbacklist]
+maxFeeds = 0
+feedType = "list"
+sortOrder = "desc"
+==
+<!DOCTYPE html>
+<html>
+    <head>
+        {% partial "site/meta" %}
+    </head>
+    <body class="is-home">
+        <!-- Header -->
+        {% partial "site/header" %}
+
+        <!-- Content -->
+        <main class="main">
+            <section class="intro section">
+                <div class="salon-bg">
+                    <div class="salon-bg">
+                        <img
+                            src="{{ this.theme.intro_bg|media|resize(1600, 1000, { quality: '70' }) }}"
+                            alt="Салон каприз"
+                            class="salon-bg__image"
+                        />
+                    </div>
+                </div>
+                <div class="container">
+                    <div class="row justify-content-center">
+                        <div
+                            class="col-12 col-md-12 col-lg-10 text-center intro__content"
+                        >
+                            <h1 class="intro__title mb-5">{{ this.theme.intro_title }}</h1>
+                            <div class="intro__description mb-4">
+                                {{ this.theme.intro_content|raw }}
+                            </div>
+
+                            <div class="row mb-5">
+                                {% for row in this.theme.intro_information %}
+                                <div class="col-md-4">
+                                    <div class="intro__item">
+                                        <img
+                                            src="{{ row.ico|media }}"
+                                            alt="best"
+                                            class="intro__ico mb-3 ml-auto mr-auto"
+                                        />
+                                        <p class="lead text-white">
+                                            {{ row.details }}
+                                        </p>
+                                    </div>
+                                </div>
+
+                                {% endfor %}
+                            </div>
+
+                            <div class="row justify-content-center">
+                                <button
+                                    class="btn btn-lg btn-danger"
+                                    data-toggle="modal"
+                                    data-target="#popup"
+                                >
+                                    <i class="fas fa-envelope mr-1"></i>
+                                    Оставить заявку
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            {% component 'services' %}
+
+            <section class="about-us section">
+                <div class="salon-bg">
+                    <div class="salon-bg">
+                        <img
+                        src="{{ this.theme.about_bg|media|resize(1600, 1000, { quality: '70' }) }}"
+                            alt="О нас"
+                            class="salon-bg__image"
+                        />
+                    </div>
+                </div>
+                <div class="container about-us__container text-center">
+                    <div class="row">
+                        <div class="col-12">
+                            <div
+                                class="about-us__header text-center text-white mb-5"
+                            >
+                                <h2 class="title about-us__title">
+                                    Немного о нас
+                                </h2>
+                                <p class="lead">
+                                    История нашей компании.
+                                </p>
+                            </div>
+                            <div class="about-us__content mb-4">
+                                {% page %}
+                            </div>
+                            <a href="{{ 'about'|staticPage }}" class="btn btn-lg btn-danger"
+                                >Подробнее</a
+                            >
+                        </div>
+                    </div>
+                    <div class="row about-us__social mt-5 align-items-end">
+                        <div
+                            class="col-md-3 order-0 order-sm-0 order-sm-0 order-md-0"
+                        >
+                            <span class="about-us__number mb-2">50k</span>
+                            <p class="about-us__subtitle">Довольных клиентов</p>
+                        </div>
+                        <div
+                            class="col-md-6 order-2 order-sm-2 order-sm-2 order-md-1"
+                        >
+                            <p class="about-us__subtitle mb-2">
+                                Мы в соц. сетях
+                            </p>
+                            <div
+                                class="d-flex social-list justify-content-center"
+                            >
+                                {% partial "site/social" %}
+                            </div>
+                        </div>
+                        <div
+                            class="col-md-3 order-1 order-sm-1 order-sm-1 order-md-2"
+                        >
+                            <span class="about-us__number mb-2">8</span>
+                            <p class="about-us__subtitle">
+                                Магазинов по России
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section class="form section">
+                <div class="salon-bg">
+                    <div class="salon-bg">
+                        <img
+                            src="{{ this.theme.form_bg|media|resize(1600, 1000, { quality: '70' }) }}"
+                            alt="Оставьте заявку"
+                            class="salon-bg__image"
+                        />
+                    </div>
+                </div>
+                <div class="container form__container">
+                    <div class="row justify-content-center">
+                        <div class="col-12">
+                            <div
+                                class="form__header text-center text-white mb-5"
+                            >
+                                <h2 class="title form__title">
+                                    Связаться с нам
+                                </h2>
+                                <p class="lead form__subtitle">
+                                    Мы перезвоним в течении 5 минут.
+                                </p>
+                            </div>
+                        </div>
+                        <div class="col-12 col-md-10 col-lg-8">
+                            {% component 'formwidget' %}
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            {% component 'advantage' %}
+
+            <section class="testimonial section">
+                <div class="salon-bg">
+                    <div class="salon-bg">
+                        <img
+                            src="{{ this.theme.post_bg|media|resize(1600, 1000, { quality: '70' }) }}"
+                            alt="Новости"
+                            class="salon-bg__image"
+                        />
+                    </div>
+                </div>
+                <div class="container testimonial__container">
+                    <div class="row">
+                        <div class="col-12">
+                            <div
+                                class="testimonial__header text-center text-white mb-5"
+                            >
+                                <h2 class="title testimonial__title">Наши отзывы</h2>
+                                <p class="lead testimonial__subtitle">
+                                    Lorem ipsum dolor sit amet consectetur.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                    {% component 'feedbacklist' %}
+                </div>
+            </section>
+
+            <section class="gallery">
+                <div class="salon-bg">
+                    <div class="salon-bg">
+                        <img
+                            src="{{ this.theme.gallery_bg|media|resize(1600, 1000, { quality: '70' }) }}"
+                            alt="Галерея"
+                            class="salon-bg__image"
+                        />
+                    </div>
+                </div>
+                <div class="container gallery__container">
+                    {% component 'galleries' %}
+                    <div
+                        class="row flex-column align-items-center mt-4 text-center"
+                    >
+                        <p class="gallery__subtitle mb-4 text-white">
+                            Мы в соц. сетях
+                        </p>
+                        <div
+                            class="col-12 col-md-10 col-lg-8 d-flex social-list justify-content-center"
+                        >
+                            {% partial "site/social" %}
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </main>
+
+        <!-- Footer -->
+        {% partial "site/footer" %}
+
+        <!-- Modal -->
+        <div
+            class="modal fade"
+            id="popup"
+            tabindex="-1"
+            role="dialog"
+            aria-labelledby="popuplLabel"
+            aria-hidden="true"
+        >
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="popuplLabel">
+                            Оставить заявку
+                        </h5>
+                        <button
+                            type="button"
+                            class="close"
+                            data-dismiss="modal"
+                            aria-label="Close"
+                        >
+                            <img src="{{ 'assets/images/cancel.svg'|theme }}" alt="" class="close__icon" />
+                        </button>
+                    </div>
+                    <div class="modal-body">
+                        {% component 'formwidget2' %}
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Scripts -->
+        <script src="{{ 'assets/dist/js/index.js'|theme }}"></script>
+        {% framework extras %} {% scripts %}
+    </body>
+</html>

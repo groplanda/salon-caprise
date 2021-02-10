@@ -1,0 +1,35 @@
+title = "Магазины"
+url = "/shops"
+layout = "default"
+is_hidden = 0
+==
+<?php
+use Acme\Settings\Models\Shop;
+
+function onStart()
+{
+  $this['shops'] = Shop::orderBy('sort_order', 'asc')->get();
+}
+?>
+==
+<div class="shop">
+  <div class="container shop__container">
+    <div class="row">
+      {% for shop in shops %}
+      {% set image = shop.photo %}
+        <div class="col-12">
+          <div class="shop__item d-flex bg-light
+           rounded shadow mb-4">
+            <div class="shop__group order-1 order-sm-1 order-md-0 order-lg-0">
+              <h3 class="shop__title">{{ shop.title }}</h3>
+              <div class="shop__description">
+                {{ shop.description|raw }}
+              </div>
+            </div>
+            <img src="{{ image.thumb(240, 320, {'mode': 'crop'}) }}" alt="{{ shop.title }}" class="shop__image rounded order-0 order-sm-0 order-md-1 order-lg-1" />
+          </div>
+        </div>
+      {% endfor %}
+    </div>
+  </div>
+</div>

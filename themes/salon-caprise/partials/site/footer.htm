@@ -1,0 +1,41 @@
+description = "Footer"
+
+[viewBag]
+==
+<footer class="footer section">
+  <div class="salon-bg">
+    <div class="salon-bg">
+    </div>
+  </div>
+  <div class="footer__container container">
+    <div class="row align-items-end">
+
+      <div class="col-12 col-sm-6 col-md-4 col-lg-3 mb-3">
+        <p class="footer__label mb-1 text-muted">Адрес: </p>
+        <p class="text-white">{{ this.theme.address }}</p>
+      </div>
+
+      <div class="col-12 col-sm-6 col-md-4 col-lg-3 mb-3">
+        <p class="footer__label mb-1 text-muted">E-mail: </p>
+        <a href="mailto:mail@mail.ru" class="text-white">{{ this.theme.t_email }}</a>
+      </div>
+
+      <div class="col-12 col-sm-6 col-md-4 col-lg-3 mb-3">
+        <p class="footer__label mb-1 text-muted">Телефон: </p>
+        <a href="tel:{{ this.theme.phone }}" class="text-white">{{ this.theme.phone }}</a>
+      </div>
+
+      <div class="col-12 col-sm-6 col-md-4 col-lg-3 mb-3">
+        <button
+            class="btn btn-light btn-sm"
+            data-toggle="modal"
+            data-target="#popup"
+        >
+            <i class="fas fa-envelope mr-1"></i>
+            Оставить заявку
+        </button>
+      </div>
+
+    </div>
+  </div>
+</footer>

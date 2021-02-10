@@ -1,0 +1,46 @@
+{% set advantage = __SELF__.advantages %}
+<section id="{{__SELF__.id}}" class="advantages section">
+  <div class="salon-bg">
+      <div class="salon-bg">
+          <img
+              src="{{ advantage.image|media|resize(1600, 1000, { quality: '70' }) }}"
+              alt="{{ advantage.title|raw }}"
+              class="salon-bg__image"
+          />
+      </div>
+  </div>
+  <div class="container advantages__container">
+      <div class="row">
+          <div class="col-12">
+              <div
+                  class="form__header text-center text-white mb-5"
+              >
+                  <h2 class="title form__title">{{ advantage.title|raw }}</h2>
+                  <p class="lead form__subtitle">
+                    {{ advantage.description|raw }}
+                  </p>
+              </div>
+          </div>
+      </div>
+
+      <div class="row">
+        {% for row in advantage.advantages %}
+        <div class="col-12 col-sm-6 col-md-6 col-lg-4">
+            <div class="advantages__item p-4 text-center">
+              <img
+                  src="{{ row.a_ico|media|resize(75, 75, { quality: '100' }) }}"
+                  alt="{{ row.a_title|raw }}"
+                  class="advantages__ico mr-auto ml-auto mb-3 d-block"
+              />
+              <h4 class="advantages__title-sm mb-2">
+                {{ row.a_title|raw }}
+              </h4>
+              <p class="advantages__text">
+                {{ row.a_descr|raw }}
+              </p>
+            </div>
+          </div>
+        {% endfor %}
+      </div>
+  </div>
+</section>

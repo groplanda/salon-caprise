@@ -1,0 +1,44 @@
+description = "Header"
+
+[viewBag]
+
+[staticMenu]
+code = "header-menu"
+==
+<header class="header pt-2 pb-2 bg-white shadow fixed-top">
+  <div class="container">
+    <div class="row align-items-center">
+
+      <div class="col-4 col-sm-4 col-md-6 col-lg-2 order-0 order-sm-0 order-md-0 order-lg-0">
+        <a href="/">
+          <img src="{{ 'assets/images/logo.jpg'|theme }}" alt="салон каприз" class="header__logo" />
+        </a>
+      </div>
+
+      <div class="col-12 col-sm-12 col-md-12 col-lg-7 order-2 order-sm-2 order-sm-2 order-md-2 order-lg-1">
+
+        <nav class="navbar navbar-expand-md navbar-light bg-light">
+
+          <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+
+          <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            {% partial "site/menu-item" items=menuItems %}
+          </div>
+        </nav>
+
+      </div>
+
+      <div class="col-8 col-sm-8 col-md-6 col-lg-3 order-sm-1 order-sm-1 order-md-1 order-lg-2 d-flex justify-content-lg-between align-items-center flex-wrap">
+        <div class="messengers d-flex mr-2">
+          {% partial "site/messenger" %}
+        </div>
+        <a href="tel:{{ this.theme.phone }}" class="text-danger header__phone">
+          {{ this.theme.phone }}
+        </a>
+      </div>
+
+    </div>
+  </div>
+</header>

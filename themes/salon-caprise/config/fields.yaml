@@ -1,0 +1,171 @@
+tabs:
+  defaultTab: Контакты
+  lazy:
+      - Контакты
+      - Общие
+      - Главная страница
+  paneCssClass:
+      0: first-tab
+      1: second-tab
+      2: third-tab
+  icons:
+      Контакты: icon-phone
+      Общие: icon-cogs
+      Главная страница: icon-home
+  fields:
+      phone:
+          type: text
+          label: Телефон
+          span: storm
+          cssClass: col-md-4
+          tab: Контакты
+          placeholder: '+79147580525'
+      t_email:
+          type: email
+          label: E-mail
+          span: storm
+          cssClass: col-md-4
+          tab: Контакты
+          placeholder: 'example@mail.ru'
+      address:
+          type: text
+          label: Адрес
+          span: storm
+          cssClass: col-md-4
+          tab: Контакты
+          placeholder: 'г. Москва'
+      whatsapp:
+          type: text
+          label: WhatsApp
+          span: storm
+          cssClass: col-md-4
+          tab: Контакты
+          placeholder: '79147580525'
+      viber:
+          type: text
+          label: Viber
+          span: storm
+          cssClass: col-md-4
+          tab: Контакты
+          placeholder: '79147580525'
+      vk:
+          type: text
+          label: Вконтакте
+          span: storm
+          cssClass: col-md-4
+          tab: Контакты
+          placeholder: https://vk.com
+      instagram:
+        type: text
+        label: Instagram
+        span: storm
+        cssClass: col-md-4
+        tab: Контакты
+        placeholder: https://www.instagram.com
+      twitter:
+        type: text
+        label: Twitter
+        span: storm
+        cssClass: col-md-4
+        tab: Контакты
+        placeholder: https://www.twitter.com
+      site_name:
+        type: text
+        label: Название сайта
+        default: OctoberCms
+        span: full
+        tab: Общие
+
+      intro_section:
+        label: Первый экран
+        type: section
+        tab: Главная страница
+
+      intro_bg:
+        label: Фоновая картинка
+        type: mediafinder
+        mode: image
+        imageHeight: 250
+        imageWidth: 250
+        tab: Главная страница
+
+      intro_title:
+        type: text
+        label: Заголовок
+        span: full
+        tab: Главная страница
+
+      intro_content:
+        label: Описание
+        type: richeditor
+        size: large
+        tab: Главная страница
+
+      intro_information:
+        type: repeater
+        prompt: Добавить
+        titleFrom: Преимущества
+        form:
+            fields:
+                ico:
+                    label: Иконка
+                    type: mediafinder
+                    mode: image
+                    imageHeight: 50
+                    imageWidth: 50
+                details:
+                    label: Описание
+                    type: text
+        tab: Главная страница
+
+      about_section:
+        label: Немного о нас
+        type: section
+        tab: Главная страница
+
+      about_bg:
+        label: Фоновая картинка
+        type: mediafinder
+        mode: image
+        imageHeight: 250
+        imageWidth: 250
+        tab: Главная страница
+
+      form_section:
+        label: Главная форма
+        type: section
+        tab: Главная страница
+
+      form_bg:
+        label: Фоновая картинка
+        type: mediafinder
+        mode: image
+        imageHeight: 250
+        imageWidth: 250
+        tab: Главная страница
+
+      post_section:
+        label: Отзывы
+        type: section
+        tab: Главная страница
+
+      post_bg:
+        label: Фоновая картинка
+        type: mediafinder
+        mode: image
+        imageHeight: 250
+        imageWidth: 250
+        tab: Главная страница
+
+      gallery_section:
+        label: Галерея
+        type: section
+        tab: Главная страница
+
+      gallery_bg:
+        label: Фоновая картинка
+        type: mediafinder
+        mode: image
+        imageHeight: 250
+        imageWidth: 250
+        tab: Главная страница
