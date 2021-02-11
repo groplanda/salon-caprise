@@ -26,7 +26,9 @@ function onStart()
                 {{ shop.description|raw }}
               </div>
             </div>
-            <img src="{{ image.thumb(240, 320, {'mode': 'crop'}) }}" alt="{{ shop.title }}" class="shop__image rounded order-0 order-sm-0 order-md-1 order-lg-1" />
+            <a href="{{ image.thumb(900, false, {'mode': 'crop'}) }}" data-lightbox="photo" data-title="{{ shop.title }}" class="shop__open">
+              <img src="{{ image.thumb(440, 300, {'mode': 'crop'}) }}" alt="{{ shop.title }}" class="shop__image rounded order-0 order-sm-0 order-md-1 order-lg-1" />
+            </a>
           </div>
         </div>
       {% endfor %}

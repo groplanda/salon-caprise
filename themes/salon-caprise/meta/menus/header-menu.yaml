@@ -13,36 +13,14 @@ items:
             cssClass: ''
             isExternal: '0'
     -
-        title: 'О нас'
-        nesting: 0
-        type: static-page
-        url: null
-        code: ''
-        reference: about
-        cmsPage: null
-        replace: 0
-        viewBag:
-            isHidden: '0'
-            cssClass: ''
-            isExternal: '0'
-    -
         title: Магазины
+        nesting: null
         type: cms-page
+        url: null
         code: ''
         reference: shop
-        viewBag:
-            isHidden: '0'
-            cssClass: ''
-            isExternal: '0'
-    -
-        title: Вакансии
-        nesting: 0
-        type: static-page
-        url: null
-        code: ''
-        reference: job
         cmsPage: null
-        replace: 0
+        replace: null
         viewBag:
             isHidden: '0'
             cssClass: ''
@@ -54,6 +32,19 @@ items:
         url: null
         code: ''
         reference: production
+        cmsPage: null
+        replace: 0
+        viewBag:
+            isHidden: '0'
+            cssClass: ''
+            isExternal: '0'
+    -
+        title: Вакансии
+        nesting: 0
+        type: static-page
+        url: null
+        code: ''
+        reference: job
         cmsPage: null
         replace: 0
         viewBag:

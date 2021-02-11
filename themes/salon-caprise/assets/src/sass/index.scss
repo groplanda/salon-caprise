@@ -145,10 +145,6 @@ img {
 
 .header {
 
-  &__logo {
-    height: 60px;
-  }
-
   &__phone {
     font-size: 18px;
     font-weight: 600;
@@ -177,9 +173,9 @@ img {
   }
 
   &__title {
-    font-family: "Corinthia";
-    font-size: 160px;
-    line-height: 100px;
+    font-family: $base-font;
+    font-size: 120px;
+    line-height: 120px;
     color: #FFF;
 
     @media(max-width: 767px) {
@@ -190,6 +186,12 @@ img {
       font-size: 40px;
       line-height: 40px;
     }
+  }
+
+  &__rotate {
+    display: inline-block;
+    transform: scale(-1, 1);
+    margin-left: -10px;
   }
 
   &__description {
@@ -557,28 +559,36 @@ img {
 
   &__group {
     width: 100%;
-    max-width: calc(100% - 260px);
+    max-width: calc(100% - 460px);
+
+    @media(max-width: 991px) {
+      max-width: calc(50% - 20px);
+    }
 
     @media(max-width: 767px) {
       max-width: 100%;
     }
   }
 
-  &__image {
-    width: 100%;
-    max-width: 240px;
+  &__open {
+    display: flex;
     margin-left: 20px;
+    max-width: 440px;
+
+    @media(max-width: 991px) {
+      max-width: 50%;
+    }
 
     @media(max-width: 767px) {
       max-width: 100%;
-      margin: 0 0 20px 0;
-      height: 250px;
-      object-fit: cover;
+      margin-left: 0;
+      margin-bottom: 20px;
     }
 
-    @media(max-width: 374px) {
-      height: 200px;
-    }
+  }
+
+  &__image {
+    width: 100%;
   }
 
   &__title {
