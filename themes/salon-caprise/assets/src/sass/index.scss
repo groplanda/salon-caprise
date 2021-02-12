@@ -145,6 +145,18 @@ img {
 
 .header {
 
+  &__logo {
+
+    @media(max-width: 767px) {
+      max-width: 200px;
+    }
+
+    @media(max-width: 639px) {
+      max-width: 150px;
+    }
+
+  }
+
   &__phone {
     font-size: 18px;
     font-weight: 600;
@@ -178,9 +190,15 @@ img {
     line-height: 120px;
     color: #FFF;
 
+    @media(max-width: 1199px) {
+      font-size: 90px;
+      line-height: 90px;
+    }
+
     @media(max-width: 767px) {
       font-size: 60px;
       line-height: 60px;
+
     }
     @media(max-width: 415px) {
       font-size: 40px;
@@ -192,6 +210,10 @@ img {
     display: inline-block;
     transform: scale(-1, 1);
     margin-left: -10px;
+
+    @media(max-width: 767px) {
+      margin-left: 0;
+    }
   }
 
   &__description {
@@ -513,10 +535,10 @@ img {
 .page {
   min-height: 100vh;
   &__content {
-    padding: 100px 0 15px;
+    padding: 100px 0 30px;
 
     @media(max-width: 990px) {
-      padding: 150px 0 15px;
+      padding: 150px 0 50px;
     }
 
   }

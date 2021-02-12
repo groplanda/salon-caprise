@@ -27,13 +27,9 @@ items:
             isExternal: '0'
     -
         title: Производство
-        nesting: 0
-        type: static-page
-        url: null
+        type: cms-page
         code: ''
         reference: production
-        cmsPage: null
-        replace: 0
         viewBag:
             isHidden: '0'
             cssClass: ''
