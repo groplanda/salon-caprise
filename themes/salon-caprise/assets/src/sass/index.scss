@@ -535,7 +535,7 @@ img {
 .page {
   min-height: 100vh;
   &__content {
-    padding: 100px 0 30px;
+    padding: 100px 0 100px;
 
     @media(max-width: 990px) {
       padding: 150px 0 50px;
