@@ -84,68 +84,6 @@ sortOrder = "desc"
 
             {% component 'services' %}
 
-            <section class="about-us section">
-                <div class="salon-bg">
-                    <div class="salon-bg">
-                        <img
-                        src="{{ this.theme.about_bg|media|resize(1600, 1000, { quality: '70' }) }}"
-                            alt="О нас"
-                            class="salon-bg__image"
-                        />
-                    </div>
-                </div>
-                <div class="container about-us__container text-center">
-                    <div class="row">
-                        <div class="col-12">
-                            <div
-                                class="about-us__header text-center text-white mb-5"
-                            >
-                                <h2 class="title about-us__title">
-                                    Немного о нас
-                                </h2>
-                                <p class="lead">
-                                    История нашей компании.
-                                </p>
-                            </div>
-                            <div class="about-us__content mb-4">
-                                {% page %}
-                            </div>
-                            <a href="{{ 'about'|staticPage }}" class="btn btn-lg btn-danger"
-                                >Подробнее</a
-                            >
-                        </div>
-                    </div>
-                    <div class="row about-us__social mt-5 align-items-end">
-                        <div
-                            class="col-md-3 order-0 order-sm-0 order-sm-0 order-md-0"
-                        >
-                            <span class="about-us__number mb-2">50k</span>
-                            <p class="about-us__subtitle">Довольных клиентов</p>
-                        </div>
-                        <div
-                            class="col-md-6 order-2 order-sm-2 order-sm-2 order-md-1"
-                        >
-                            <p class="about-us__subtitle mb-2">
-                                Мы в соц. сетях
-                            </p>
-                            <div
-                                class="d-flex social-list justify-content-center"
-                            >
-                                {% partial "site/social" %}
-                            </div>
-                        </div>
-                        <div
-                            class="col-md-3 order-1 order-sm-1 order-sm-1 order-md-2"
-                        >
-                            <span class="about-us__number mb-2">8</span>
-                            <p class="about-us__subtitle">
-                                Магазинов по России
-                            </p>
-                        </div>
-                    </div>
-                </div>
-            </section>
-
             <section class="form section">
                 <div class="salon-bg">
                     <div class="salon-bg">
