@@ -22,5 +22,15 @@ window.onload = () => {
       $(this).closest('form').find('.form-control.is-invalid').removeClass('is-invalid');
   });
 
+  $('form').on('ajaxSuccess', function(event) {
+    event.currentTarget.reset();
+    if($('.custom-file-label').length > 0) {
+      $('.custom-file-label').removeClass('selected').html('Прикрепить файл');
+    }
+  });
 
+  $(".custom-file-input").on("change", function() {
+    var fileName = $(this).val().split("\\").pop();
+    $(this).siblings(".custom-file-label").addClass("selected").html(fileName);
+  });
 }

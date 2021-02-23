@@ -78,32 +78,54 @@ class FormWidget extends ComponentBase
         'user_phone' => Input::get('user_phone'),
         'user_mail' => Input::get('user_mail'),
         'user_message' => Input::get('user_message'),
+        'user_vacancy' => Input::get('user_vacancy'),
       ];
 
-      //вставка в базу данных
-      $query = new Application();
-      $query->user_name = Input::get('user_name');
-      $query->user_phone = Input::get('user_phone');
-      $query->user_mail = Input::get('user_mail');
-      $query->user_message = Input::get('user_message');
-      $query->user_ip = $_SERVER["REMOTE_ADDR"];
-      $query->user_status = 1;
-      $query->created_at = time();
-      $query->save();
+      if(Input::get('type') == 'Резюме') {
 
-      //отправка на почту
-      Mail::send('acme.contactform::mail.message', $vars, function($message) {
+        if (Input::hasFile('file')) {
+          $data = new Application();
+          $data->file = Input::file('file');
+          $data->save();
+          $vars += ['file'=> $data->file->getPath()];
+        }
 
+        Mail::send('acme.contactform::mail.vacancy', $vars, function($message) use ($vars) {
           $message->to($this->getUserMail(), 'Admin Person');
-          $message->subject('Сообщение с сайта');
+          $message->attach($vars['file']);
+          $message->subject('Новое резюме');
+        });
 
-      });
+        Flash::success('Резюме успешно отправлено!');
 
-      if($query) {
-        Flash::success('Сообщение успешно отправлено!');
       } else {
-        Flash::error('Произошла ошибка!');
+        //вставка в базу данных
+        $query = new Application();
+        $query->user_name = Input::get('user_name');
+        $query->user_phone = Input::get('user_phone');
+        $query->user_mail = Input::get('user_mail');
+        $query->user_message = Input::get('user_message');
+        $query->user_ip = $_SERVER["REMOTE_ADDR"];
+        $query->user_status = 1;
+        $query->created_at = time();
+        $query->save();
+
+        //отправка на почту
+        Mail::send('acme.contactform::mail.message', $vars, function($message) {
+
+            $message->to($this->getUserMail(), 'Admin Person');
+            $message->subject('Сообщение с сайта');
+
+        });
+
+        if($query) {
+          Flash::success('Сообщение успешно отправлено!');
+        } else {
+          Flash::error('Произошла ошибка!');
+        }
       }
+
+
 
     }
 

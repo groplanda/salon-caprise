@@ -628,3 +628,7 @@ img {
     }
   }
 }
+
+.custom-file-label:after {
+  content: "Выбрать";
+}

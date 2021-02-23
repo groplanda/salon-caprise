@@ -8,7 +8,7 @@ use Model;
 class Application extends Model
 {
     use \October\Rain\Database\Traits\Validation;
-    
+
     use \October\Rain\Database\Traits\SoftDelete;
 
     protected $dates = ['deleted_at'];
@@ -23,5 +23,9 @@ class Application extends Model
      * @var array Validation rules
      */
     public $rules = [
+    ];
+
+    public $attachOne = [
+        'file' => 'System\Models\File'
     ];
 }

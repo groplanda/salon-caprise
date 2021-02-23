@@ -21,7 +21,7 @@ class feedbackForm extends \Cms\Classes\ComponentBase
     }
 
     // получение email админа
-    public function getUserMail() 
+    public function getUserMail()
     {
         return User::where('is_superuser', 1)->value('email');
     }
@@ -40,9 +40,9 @@ class feedbackForm extends \Cms\Classes\ComponentBase
         ];
 
         //сообщения об ошибках
-        $messages = [                
-            'name.required' => 'Пожалуйста, заполните имя',       
-            'name.min' => 'Какое то короткое имя...',  
+        $messages = [
+            'name.required' => 'Пожалуйста, заполните имя',
+            'name.min' => 'Какое то короткое имя...',
             'email.required' => 'E-mail обязателен!',
             'email.email' => 'E-mail некорректный!',
             'message.required' => 'Напишите текст отзыва!',
@@ -92,7 +92,7 @@ class feedbackForm extends \Cms\Classes\ComponentBase
 
         //отправка сообщения на почту
         $vars = [
-            'name' => $name, 
+            'name' => $name,
             'mail' => $email,
             'stars' => $stars,
             'content_message' => $message,
@@ -102,7 +102,7 @@ class feedbackForm extends \Cms\Classes\ComponentBase
 
             $message->to($this->getUserMail(), 'Admin Person');
             $message->subject('Добавлен новый отзыв');
-        
+
         });
 
     }

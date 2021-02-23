@@ -1,31 +1,101 @@
-<form 
-id="{{ __SELF__.id }}"
-data-request="{{ __SELF__ }}::onSend"
-data-request-validate
-data-request-flash
-class="ajax-form rounded shadow">
-    <div class="title w-100">Мы свяжемся с Вами в течение 4 минут</div>
-    <div class="d-flex ajax-form__row">
-        <div class="form-group">
-            <label for="">Имя</label>
-            <input type="text" name="user_name" class="input rounded" placeholder="Ваше имя">
-            <span class="small" data-validate-for="user_name"></span>
+<form
+    class="form__wrapper bg-white shadow p-4 rounded mb-5"
+    id="{{ __SELF__.id }}"
+    data-request="{{ __SELF__ }}::onSend"
+    data-request-validate
+    data-request-flash
+    data-request-files
+>
+    <div class="row">
+        <div class="col-12 mb-3">
+            <h3>Не нашли нужную вакансию?</h3>
         </div>
-        <div class="form-group">
-            <label for="">Телефон</label>
-            <input type="text" name="user_phone" class="phone__mask input rounded" placeholder="+7(999)-999-999">
-            <span class="small" data-validate-for="user_phone"></span>
+        <div class="col-12 col-md-6 mb-3">
+            <input
+                type="text"
+                class="form-control"
+                placeholder="Ваше имя"
+                name="user_name"
+                id="name"
+            />
+            <span class="invalid-feedback" data-validate-for="user_name"></span>
+            <div class=""></div>
         </div>
-        <div class="form-group">
-            <button id="btn-2" class="theme-btn" disabled="disabled" data-attach-loading>Заказать звонок</button>
+        <div class="col-12 col-md-6 mb-3">
+            <input
+                type="text"
+                class="form-control"
+                placeholder="Ваш телефон"
+                name="user_phone"
+                id="phone"
+                data-input="phone"
+            />
+            <span
+                class="invalid-feedback"
+                data-validate-for="user_phone"
+            ></span>
         </div>
-        <div class="checkbox w-100">
-            <input id="confirm2" type="checkbox" name="check" value="confirm">
-            <label for="confirm2">Согласен с <a href="{{ 'privacy'|staticPage }}" target="_blank" rel="noopener noreferrer">политикой конфиденциальности</a></label>
+        <div class="col-12 col-md-6 mb-3">
+            <input
+                type="text"
+                class="form-control"
+                placeholder="Email"
+                name="user_mail"
+                id="email"
+            />
+            <span class="invalid-feedback" data-validate-for="user_mail"></span>
+        </div>
+        <div class="col-12 col-md-6 mb-3">
+            <input
+                type="text"
+                class="form-control"
+                placeholder="Интересующая позиция"
+                name="user_vacancy"
+                id="vacancy"
+            />
+            <span class="invalid-feedback" data-validate-for="user_vacancy"></span>
+        </div>
+        <div class="col-12 col-md-12 mb-3">
+            <textarea
+                class="form-control"
+                placeholder="Ваше сообщение"
+                name="user_message"
+            ></textarea>
+        </div>
+        <div class="col-12 mb-3">
+            <div class="custom-file">
+                <input type="file" accept="*" name="file" class="custom-file-input" id="file">
+                <label class="custom-file-label" for="file">Прикрепить файл</label>
+            </div>
+        </div>
+        <div class="col-12 col-md-12 mb-3">
+            <button
+                type="submit"
+                class="button disabled"
+                data-attach-loading
+                data-button="send"
+                disabled
+            >
+                Отправить
+            </button>
+            <input type="hidden" value="Резюме" name="type" />
+        </div>
+        <div class="col-12 col-md-12">
+            <div class="form-group form-check">
+                <input
+                    type="checkbox"
+                    class="form-check-input mt-0"
+                    id="confirm"
+                    data-checkbox="confirm"
+                />
+                <label class="form-check-label text-dark" for="confirm"
+                    >Согласен на обработку персональных данных</label
+                >
+            </div>
         </div>
     </div>
     {% flash %}
-    <div class="alert alert-{{ type }}" data-interval="4">
+    <div class="text-center mt-3 mb-3 alert alert-{{ type }}" data-interval="4">
         {{ message }}
     </div>
     {% endflash %}
