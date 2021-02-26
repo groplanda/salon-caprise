@@ -1,0 +1,70 @@
+description = "Job page"
+
+[formwidget]
+formType = "third"
+
+[formwidget formwidget2]
+formType = "second"
+
+[staticPage]
+useContent = 1
+default = 0
+==
+<!DOCTYPE html>
+<html>
+  <head>
+    {% partial "site/meta" %}
+  </head>
+  <body class="is-page">
+    <!-- Header -->
+    {% partial "site/header" %}
+    <!--Main-->
+    <main class="page">
+      <div class="container">
+        <div class="page__content bg-light mb-5">
+          <h1 class="title align-center mb-5">{{ this.page.title }}</h1>
+          {% component 'staticPage' %}
+        </div>
+        <div class="pb-4">
+            {% component 'formwidget2' %}
+        </div>
+      </div>
+    </main>
+    <!-- Footer -->
+    {% partial "site/footer" %}
+    <!-- Modal -->
+    <div
+      class="modal fade"
+      id="popup"
+      tabindex="-1"
+      role="dialog"
+      aria-labelledby="popuplLabel"
+      aria-hidden="true"
+    >
+      <div class="modal-dialog">
+          <div class="modal-content">
+              <div class="modal-header">
+                  <h5 class="modal-title" id="popuplLabel">
+                      Оставить заявку
+                  </h5>
+                  <button
+                      type="button"
+                      class="close"
+                      data-dismiss="modal"
+                      aria-label="Close"
+                  >
+                      <img src="{{ 'assets/images/cancel.svg'|theme }}" alt="" class="close__icon" />
+                  </button>
+              </div>
+              <div class="modal-body">
+                  {% component 'formwidget' %}
+              </div>
+          </div>
+      </div>
+    </div>
+    <!-- Scripts -->
+    <script src="{{ 'assets/dist/js/index.js'|theme }}"></script>
+    {% framework extras %}
+    {% scripts %}
+</body>
+</html>

@@ -6712,3 +6712,7 @@ img {
 .custom-file-label:after {
   content: "\412\44B\431\440\430\442\44C";
 }
+
+.is-page ul {
+  padding-left: 20px;
+}
